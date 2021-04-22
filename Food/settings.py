@@ -24,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'y9zfwx!gqpszmmwwgt%vrjtef+2^8_9uycp4cb64m0uw3^x@17'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['justeatonweb.herokuapp.com','localhost']
+
 
 
 # Application definition
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'foodhub'
+    'foodhub',
 ]
 
 MIDDLEWARE = [
@@ -121,10 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATIC_ROOT = BASE_DIR/'assets'
 MEDIA_URL='/image/download/'
 MEDIA_ROOT=BASE_DIR
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+
